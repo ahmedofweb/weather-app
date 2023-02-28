@@ -36,8 +36,7 @@ const updateUI = (obhavo) =>{
         card.classList.remove('d-none')
     }
 
-    // weatherIcon.src = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
-    weatherIcon.src = `http://openweathermap.org/img/wn/10d@2x.png`
+    weatherIcon.src = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
 }
 
 
