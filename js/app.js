@@ -39,6 +39,17 @@ const updateUI = (obhavo) =>{
     weatherIcon.src = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
 }
 
+function updateErrUI(city){
+    details.innerHTML = ''
+    details.innerHTML = `
+    <h5 class="mb-3 color-red">Malumot topilmadi !!!</h5>
+    `
+    if(card.classList.contains('d-none')){
+        card.classList.remove('d-none')
+    }
+    weatherIcon.src = './error.jpg'
+}
+
 
 // obhavo malumotlarini forecast.js dan olinishi
 const getWeather = async (city)=>{
@@ -54,7 +65,7 @@ changeLocation.addEventListener('submit', (e) =>{
     e.preventDefault()
     const cityName = changeLocation.city.value.trim()
     changeLocation.reset()
-    getWeather(cityName).then((data)=> updateUI(data))
+    getWeather(cityName).then((data)=> updateUI(data)).catch((data)=> updateErrUI(data))
     
 })
 
